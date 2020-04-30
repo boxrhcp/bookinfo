@@ -36,7 +36,7 @@ else
 fi
 
 # Process the input arguments. By default, image scanning is disabled.
-PREFIX=istio
+PREFIX=optimum-mode-272714
 ENABLE_IMAGE_SCAN=false
 echo "$@"
 for i in "$@"
@@ -100,7 +100,8 @@ function run_vulnerability_scanning() {
 for IMAGE in ${IMAGES};
 do
   echo "Pushing: ${IMAGE}"
-  docker push "${IMAGE}";
+  docker tag "${IMAGE}" "eu.gcr.io/${IMAGE}"
+  docker push "eu.gcr.io/${IMAGE}";
 
   # $IMAGE has the following format: istio/examples-bookinfo*:"$v".
   # We want to get the sample app name from $IMAGE (the examples-bookinfo* portion)

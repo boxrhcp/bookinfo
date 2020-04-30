@@ -57,7 +57,7 @@ end
 
 # TODO: provide details on different books.
 def get_book_details(id, headers)
-    sleep(3)
+    sleep(1)
     if ENV['ENABLE_EXTERNAL_BOOK_SERVICE'] === 'true' then
       # the ISBN of one of Comedy of Errors on the Amazon
       # that has Shakespeare as the single author
